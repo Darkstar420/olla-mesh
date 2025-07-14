@@ -1,0 +1,29 @@
+[build-system]
+requires = ["setuptools>=64", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "ollamesh"
+version = "0.0.0"
+description = "Peer-to-peer LLM mesh using local Ollama runtimes."
+authors = [{name="OllaMesh Team"}]
+license = {text = "Apache-2.0"}
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = [
+    "fastapi",
+    "uvicorn[standard]"
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest",
+    "black",
+    "ruff",
+    "pre-commit"
+]
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["mesh_agent", "swarm_router", "cli"]
+
